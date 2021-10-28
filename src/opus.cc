@@ -238,7 +238,9 @@ void KryptonOpusEncoder::Init(v8::Local<v8::Object> exports) {
   Nan::SetPrototypeMethod(tpl, "setBitrate", SetBitrate);
   Nan::SetPrototypeMethod(tpl, "getBitrate", GetBitrate);
 
-  exports->Set(Nan::New("OpusEncoder").ToLocalChecked(), tpl->GetFunction());
+  Nan::Set( exports,
+					Nan::New("OpusEncoder").ToLocalChecked(),
+					Nan::GetFunction( tpl ).ToLocalChecked() );
 }
 
 }  // namespace opus
