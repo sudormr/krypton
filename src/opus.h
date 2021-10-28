@@ -131,7 +131,9 @@ class KryptonOpusEncoder : public node::ObjectWrap {
     Nan::SetPrototypeMethod(tpl, "setBitrate", Dummy);
     Nan::SetPrototypeMethod(tpl, "getBitrate", Dummy);
 
-    exports->Set(Nan::New("OpusEncoder").ToLocalChecked(), tpl->GetFunction());
+    Nan::Set( exports,
+					Nan::New("OpusEncoder").ToLocalChecked(),
+					Nan::GetFunction( tpl ).ToLocalChecked() );
   }
 };
 
